@@ -1,0 +1,103 @@
+.hero {
+  position: relative;
+  padding-top: calc(var(--header-h) + 2.5rem);
+  padding-bottom: 0;
+  overflow: hidden;
+  color: #fff;
+  background: linear-gradient(135deg, var(--navy-900), var(--navy) 55%, var(--navy-700));
+}
+
+.hero__inner {
+  position: relative;
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.hero__title {
+  font-size: clamp(2.5rem, 7.4vw, 4.4rem);
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+  text-wrap: balance;
+}
+
+.hero__subtitle {
+  max-width: 46ch;
+  margin-top: 1.25rem;
+  font-size: clamp(1.02rem, 2.4vw, 1.18rem);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero__buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+/* ---- Fotos (mosaico) sobre painel laranja ---- */
+.hero__visual {
+  position: relative;
+  display: grid;
+  grid-template-columns: 0.85fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 0.9rem;
+  align-items: center;
+  /* painel laranja que "sangra" até as bordas no mobile */
+  margin-inline: calc(var(--gutter) * -1);
+  padding: 1.5rem var(--gutter);
+  background: var(--orange);
+}
+.hero__tile {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(7, 28, 64, 0.28);
+}
+.hero__tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero__tile--a {
+  grid-row: 1 / 3;
+  align-self: center;
+  aspect-ratio: 4 / 5;
+}
+.hero__tile--b,
+.hero__tile--c {
+  aspect-ratio: 16 / 10;
+}
+
+@media (min-width: 640px) {
+  .hero__buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+@media (min-width: 960px) {
+  .hero {
+    padding-top: calc(var(--header-h) + 3rem);
+    padding-bottom: 4.5rem;
+    /* faixa diagonal laranja atrás das fotos */
+    background:
+      linear-gradient(115deg, transparent 0 54%, var(--orange) 54.1% 100%),
+      linear-gradient(135deg, var(--navy-900), var(--navy) 55%, var(--navy-700));
+  }
+  .hero__inner {
+    grid-template-columns: 1.05fr 1fr;
+    gap: 3rem;
+    min-height: 480px;
+  }
+  .hero__visual {
+    margin-inline: 0;
+    padding: 0;
+    background: transparent;
+    gap: 1rem;
+  }
+  .hero__tile--a {
+    aspect-ratio: 1 / 1.1;
+  }
+}
